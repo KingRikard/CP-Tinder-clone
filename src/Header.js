@@ -12,7 +12,7 @@ function Header() {
             <PersonIcon className="header__icon" fontSize="large" />
         </IconButton>
         <img className="header__logo"
-        src="https://1000logos.net/wp-content/uploads/2018/07/tinder-emblem.jpg" alt=""/>
+        src="https://img.favpng.com/16/8/15/punisher-logo-marvel-comics-decal-png-favpng-Q02WTVQE3aMJFmjBSMZvzgYw7.jpg" alt=""/>
         <IconButton>
             <ForumIcon className="header__icon" fontSize="Large"/>
         </IconButton>

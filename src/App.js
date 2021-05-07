@@ -1,21 +1,25 @@
 import React from "react";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import './App.css';
 import Header from "./Header";
+import TinderCards from "./TinderCards";
 
 function App() {
   return (
     <div className="App">
-        <h1>Let's Build an App Boiiis!</h1>
+      <Header />
+        <Router>
+          <Switch>
+            <Route path="/chat">
+                <h1>Let's CHAT PATH an App Boiiis!</h1>  
+            </Route>
+            <Route path="/">
+              <TinderCards />
+            </Route>
+          </Switch>
 
-        {/*   Header */}
+        </Router>
 
-        <Header />
-        {/*   Tinder Cards */}
-        {/*   Buttons below tinder Cards */}
-
-
-        {/*   Chat Screen  */}
-        {/*   Indvidual Chat Screen */}
 
 
     </div>
@@ -23,3 +27,14 @@ function App() {
 }
 
 export default App;
+
+
+          {/*   Header */}
+          {/*   Tinder Cards */}
+
+
+          {/*   Buttons below tinder Cards */}
+
+
+          {/*   Chat Screen  */}
+          {/*   Indvidual Chat Screen */}
