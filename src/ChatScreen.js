@@ -22,7 +22,7 @@ function ChatScreen() {
 
     const handleSend = e => {
         e.preventDefault();
-        setMessages([...messages, {messages: input}])
+        setMessages([...messages, {message: input}])
         setInput('');
     }
 
@@ -62,10 +62,7 @@ function ChatScreen() {
                 className="chatScreen__inputField"
                 placeholder="Type a message..."
                 type="text" />
-                <button 
-                onClick={handleSend} 
-                type="submit" 
-                className="chatScreen__inputButton" >SEND</button>
+                <button onClick={handleSend} type="submit" className="chatScreen__inputButton" >SEND</button>
             </form>
 
 
