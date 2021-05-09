@@ -1,25 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import database from "./firebase";
 import TinderCard from "react-tinder-card";
 import "./TinderCards.css";
 
 function TinderCards() {
-const [people, setPeople] = useState([
-    {
-        name:   "Maria",
-        url:    "https://static.wixstatic.com/media/72f079_8a7f6adbced54053aacaf3f12b8da74b~mv2.jpg/v1/fill/w_481,h_483,al_c,q_80,usm_0.66_1.00_0.01/AC082030-1C03-42C7-AEB3-6F9761378717_JPG.jpg",
-    },
-    {
-        name:   "Donald",
-        url:    "https://d.newsweek.com/en/full/1061787/donald-trump-approval-rating.jpg",
+const [people, setPeople] = useState([]);
 
-    }
-]);
+//Piece of code which runs based on a condition
+useEffect(() => {
+//this is where the code runs
+database
+    .collection("people")
+    .onSnapshot((snapshot) => 
+        setPeople(snapshot.docs.map((doc) => doc.data()))
+        )
+}, []);
 
 
     return (
         <div>
-            <h1>Tinder Cards</h1>
-
             <div className="tinderCards__cardContainer">
                 {people.map((person) => (
                 <TinderCard 
@@ -28,7 +27,9 @@ const [people, setPeople] = useState([
                     preventSwipe={['up', 'down']}
                     >
                     
-                    <div style={{ backgroundImage: 'url(${person.url})'}} className="card" >
+                    <div 
+                        style={{ backgroundImage: `url(${person.url})` }} 
+                        className="card" >
                         <h3>{person.name}</h3>
                     </div>
                 </TinderCard>
