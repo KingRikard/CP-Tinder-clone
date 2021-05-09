@@ -4,15 +4,21 @@ import './App.css';
 import Header from "./Header";
 import TinderCards from "./TinderCards";
 import SwipeButtons from "./SwipeButtons";
+import Chats from "./Chats";
+import ChatScreen from "./ChatScreen";
 
 function App() {
   return (
     <div className="App">
         <Router>
           <Switch>
+            <Route path="/chat/:person">
+            <Header backButton="/chat" />
+                <ChatScreen />
+            </Route>
             <Route path="/chat">
             <Header backButton="/" />
-                <h1>Let's CHAT PATH an App Boiiis!</h1>  
+                <Chats />
             </Route>
             <Route path="/">
             <Header />
@@ -32,11 +38,6 @@ function App() {
 export default App;
 
 
-          {/*   Header */}
-          {/*   Tinder Cards */}
-
-
-          {/*   Buttons below tinder Cards */}
 
 
           {/*   Chat Screen  */}
